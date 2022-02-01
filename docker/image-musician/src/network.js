@@ -1,8 +1,8 @@
 // Multicast address
-const HOSTNAME = "239.0.0.1";
+const HOSTNAME = "224.0.0.3";
 
 // Multicast port
-const PORT = 1291;
+const PORT = 1470;
 
 export {
   HOSTNAME,

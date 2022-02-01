@@ -15,7 +15,7 @@ const instrument = argv[2];
 if (!Object.keys(INSTRUMENTS).includes(instrument)) {
   console.log("The instrument don't exist, here are all instruments available:");
   Object.entries(INSTRUMENTS).forEach((i) =>
-    console.log("-",i[0])
+    console.log("-", i[0])
   );
   process.exit(1);
 }
@@ -31,5 +31,6 @@ const payload = {
 // UDP Socket creation
 const socket = dgram.createSocket('udp4');
 
-
+//
+console.log("Sending payload to " + HOSTNAME + ":" + PORT);
 setInterval(() => socket.send(JSON.stringify(payload), PORT, HOSTNAME), INTERVAL);

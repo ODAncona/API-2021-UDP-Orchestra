@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "name": "api/musician",
+  "version": "1.0.0",
+  "description": "An UDP musician",
+  "main": "musician.js",
+  "scripts": {
+    "test": "node musician.js"
+  }
+}
