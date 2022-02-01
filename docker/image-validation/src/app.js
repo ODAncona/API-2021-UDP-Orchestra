@@ -20,7 +20,7 @@ var chance = new Chance();
  * provided by our own Docker utility module (which uses the 'dokerode' npm module)
  */
 function startAuditor(auditorHasStarted) {
-	DockerUtils.startContainer('res/auditor', [], auditorHasStarted);
+	DockerUtils.startContainer('api/auditor', [], auditorHasStarted);
 }
 
 /**
@@ -35,7 +35,7 @@ function startRandomMusician(musicianHasStarted) {
 	instruments.set("violin", "gzi-gzi");
 	instruments.set("drum", "boum-boum");
 	var instrument = chance.pickone(Array.from(instruments.keys()));
-	DockerUtils.startContainer('res/musician', [instrument], musicianHasStarted);
+	DockerUtils.startContainer('api/musician', [instrument], musicianHasStarted);
 }
 
 /*

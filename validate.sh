@@ -18,9 +18,9 @@ echo ""
 echo ""
 echo "*** Deleting our 3 Docker images, if they exist"
 echo ""
-docker rmi res/auditor
-docker rmi res/musician
-docker rmi res/validate-music
+docker rmi api/auditor
+docker rmi api/musician
+docker rmi api/validate-music
 	
 #
 # ... and rebuild them
@@ -29,9 +29,9 @@ echo ""
 echo ""
 echo "*** Rebuilding our 3 Docker images"
 echo ""
-docker build --tag res/musician --file ./docker/image-musician/Dockerfile ./docker/image-musician/
-docker build --tag res/auditor --file ./docker/image-auditor/Dockerfile ./docker/image-auditor/
-docker build --tag res/validate-music --file ./docker/image-validation/Dockerfile ./docker/image-validation/
+docker build --tag api/musician --file ./docker/image-musician/Dockerfile ./docker/image-musician/
+docker build --tag api/auditor --file ./docker/image-auditor/Dockerfile ./docker/image-auditor/
+docker build --tag api/validate-music --file ./docker/image-validation/Dockerfile ./docker/image-validation/
 
 #
 # We start a single container. The Node.js application executed in this container will use
@@ -43,7 +43,7 @@ echo ""
 echo "*** Starting validation..."
 echo ""
 git remote -v | tee check.log
-docker run --name res_validation -v /var/run/docker.sock:/var/run/docker.sock res/validate-music | tee -a check.log
+docker run --name api_validation -v /var/run/docker.sock:/var/run/docker.sock api/validate-music | tee -a check.log
 
 
 
